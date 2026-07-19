@@ -1,0 +1,33 @@
+[2026-07-13 22:44:25] model=lewm domain=dmc task=reacher
+seed=0 gpu=6 logdir=/home/zhangpeiying01/lfy/btwm-7.7/runs/lewm_dmc_reacher_seed0
+stablewm_home=/home/zhangpeiying01/btwm_data/lewm_cache dataset_dir=/home/zhangpeiying01/btwm_data/lewm_cache dataset_name=reacher.h5
+command: python /home/zhangpeiying01/lfy/btwm-7.7/lewm_base/train.py data=reacher data.dataset.name=reacher.h5 trainer.max_epochs=5 trainer.devices=1 loader.batch_size=32 img_size=224 seed=0 subdir=lewm_dmc_reacher_seed0 output_model_name=lewm_dmc_reacher_seed0
+note: LeWM is an offline world-model baseline. Report results separately from DreamerV3/BTWM online RL tables.
+22:45:33 | ERROR | richuru.py  | Exception:
+Traceback (most recent call last):
+
+> File "/home/zhangpeiying01/lfy/btwm-7.7/lewm_base/train.py", line 14, in <module>
+    from utils import get_column_normalizer, get_img_preprocessor, SaveCkptCallback
+
+  File "/home/zhangpeiying01/lfy/btwm-7.7/lewm_base/utils.py", line 3, in <module>
+    from stable_pretraining import data as dt
+
+  File "/home/zhangpeiying01/.conda/envs/lewm/lib/python3.10/site-packages/stable_pretraining/data/__init__.py", line 7, in <module>
+    from . import dataset_stats, sampler, synthetic_data, transforms
+  File "/home/zhangpeiying01/.conda/envs/lewm/lib/python3.10/site-packages/stable_pretraining/data/synthetic_data.py", line 15, in <module>
+    from .datasets import Dataset
+  File "/home/zhangpeiying01/.conda/envs/lewm/lib/python3.10/site-packages/stable_pretraining/data/datasets.py", line 31, in <module>
+    from datasets import config as hf_config
+  File "/home/zhangpeiying01/.conda/envs/lewm/lib/python3.10/site-packages/datasets/__init__.py", line 22, in <module>
+    from .arrow_dataset import Dataset
+  File "/home/zhangpeiying01/.conda/envs/lewm/lib/python3.10/site-packages/datasets/arrow_dataset.py", line 67, in <module>
+    from .arrow_writer import ArrowWriter, OptimizedTypedSequence
+  File "/home/zhangpeiying01/.conda/envs/lewm/lib/python3.10/site-packages/datasets/arrow_writer.py", line 27, in <module>
+    from .features import Features, Image, Value
+  File "/home/zhangpeiying01/.conda/envs/lewm/lib/python3.10/site-packages/datasets/features/__init__.py", line 18, in <module>
+    from .features import Array2D, Array3D, Array4D, Array5D, ClassLabel, Features, Sequence, Value
+  File "/home/zhangpeiying01/.conda/envs/lewm/lib/python3.10/site-packages/datasets/features/features.py", line 634, in <module>
+    class _ArrayXDExtensionType(pa.PyExtensionType):
+                                └ <module 'pyarrow' from '/home/zhangpeiying01/.conda/envs/lewm/lib/python3.10/site-packages/pyarrow/__init__.py'>
+
+AttributeError: module 'pyarrow' has no attribute 'PyExtensionType'. Did you mean: 'ExtensionType'?

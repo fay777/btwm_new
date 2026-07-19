@@ -1,0 +1,121 @@
+"""
+BTWM: Bidirectional Transition World Model
+Inverse action prediction head for DreamerV3's RSSM.
+Predicts p(a_t | z_t, z_{t+1}) from consecutive latent states.
+
+Supports both discrete (Atari/Crafter) and continuous (DMC) action spaces.
+Continuous actions are discretized into bins (default 5).
+"""
+import jax
+import jax.numpy as jnp
+import ninjax as nj
+import embodied.jax.nets as nn
+import numpy as np
+
+f32 = jnp.float32
+
+
+class InverseActionHead(nj.Module):
+    """MLP that predicts action given two consecutive RSSM latent states.
+
+    Input: z_t, z_{t+1} — each is {deter: (B,T-1,D), stoch: (B,T-1,S,C)}
+    Output: dict of logits, one per action subspace key.
+    """
+
+    hidden_dim: int = 512
+    depth: int = 3
+    norm: str = 'rms'
+    act: str = 'gelu'
+    num_bins: int = 5  # discretization bins for continuous actions
+
+    def __init__(self, act_space, **kw):
+        self.act_space = act_space
+        self.kw = kw
+
+    def __call__(self, z_t, z_next):
+        # Flatten stoch and concatenate with deter for both z_t and z_next
+        x_t = jnp.concatenate([
+            z_t['deter'],
+            z_t['stoch'].reshape((*z_t['stoch'].shape[:-2], -1)),
+        ], axis=-1)
+        x_n = jnp.concatenate([
+            z_next['deter'],
+            z_next['stoch'].reshape((*z_next['stoch'].shape[:-2], -1)),
+        ], axis=-1)
+        x = jnp.concatenate([x_t, x_n], axis=-1)
+
+        for i in range(self.depth):
+            x = self.sub(f'lin{i}', nn.Linear, self.hidden_dim, **self.kw)(x)
+            x = nn.act(self.act)(
+                self.sub(f'norm{i}', nn.Norm, self.norm)(x))
+
+        logits = {}
+        for k, space in self.act_space.items():
+            if space.discrete:
+                # Discrete action: output (B, T-1, num_actions)
+                num_actions = int(np.asarray(space.high).item()) + 1
+                logits[k] = self.sub(
+                    f'out_{k}', nn.Linear, num_actions, **self.kw)(x)
+            else:
+                # Continuous action: discretize into bins
+                num_actions = int(np.prod(space.shape))
+                out_dim = num_actions * self.num_bins
+                logits[k] = self.sub(
+                    f'out_{k}', nn.Linear, out_dim, **self.kw)(x)
+                logits[k] = logits[k].reshape(
+                    (*logits[k].shape[:-1], num_actions, self.num_bins))
+        return logits
+
+
+def inverse_loss(inv_logits, actions, act_space):
+    """Per-element cross-entropy inverse loss.
+
+    Args:
+        inv_logits: {key: (B, T-1, A) or (B, T-1, A, C)} logits dict
+        actions: {key: (B, T-1) or (B, T-1, A)} integer labels dict
+        act_space: action space
+
+    Returns:
+        (B, T-1) loss tensor, averaged over action keys
+    """
+    total = None
+    n = 0
+    for k in act_space.keys():
+        logits = inv_logits[k]
+        labels = actions[k]
+        if logits.ndim == labels.ndim + 1:
+            # Continuous: logits (B,T,A,C), labels (B,T,A)
+            # one_hot gives (B,T,A,C), sum CE over last 2 dims
+            onehot = jax.nn.one_hot(labels, logits.shape[-1])
+            ce = -jnp.sum(
+                onehot * jax.nn.log_softmax(logits, axis=-1), axis=(-2, -1))
+        else:
+            # Discrete: logits (B,T,C), labels (B,T) [or edge case: both 3D]
+            onehot = jax.nn.one_hot(labels, logits.shape[-1])
+            ls = jax.nn.log_softmax(logits, axis=-1)
+            if onehot.ndim > ls.ndim:
+                ce = -jnp.sum(onehot * ls[..., None, :], axis=(-2, -1))
+            else:
+                ce = -jnp.sum(onehot * ls, axis=-1)
+        total = ce if total is None else total + ce
+        n += 1
+    return total / max(n, 1)
+
+
+def inverse_accuracy(inv_logits, actions, act_space):
+    """Scalar accuracy for inverse prediction."""
+    acc = 0.0
+    n = 0
+    for k in act_space.keys():
+        logits = inv_logits[k]
+        if logits.ndim == actions[k].ndim + 1:
+            # Continuous: argmax over last dim per action dimension
+            preds = jnp.argmax(logits, axis=-1)  # (B, T-1, A)
+            correct = jnp.mean(preds == actions[k])
+        else:
+            # Discrete: single argmax
+            preds = jnp.argmax(logits, axis=-1)
+            correct = jnp.mean(preds == actions[k])
+        acc += correct
+        n += 1
+    return acc / max(n, 1)

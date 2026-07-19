@@ -1,0 +1,5 @@
+[2026-07-13 22:38:49] model=lewm domain=dmc task=reacher
+seed=0 gpu=6 logdir=/home/zhangpeiying01/lfy/btwm-7.7/runs/lewm_dmc_reacher_seed0
+stablewm_home=/home/zhangpeiying01/btwm_data/lewm_cache dataset_dir=/home/zhangpeiying01/btwm_data/lewm_cache dataset_name=reacher.h5
+command: python /home/zhangpeiying01/lfy/btwm-7.7/lewm_base/train.py data=reacher data.dataset.name=reacher.h5 trainer.max_epochs=100 trainer.devices=1 loader.batch_size=128 img_size=224 seed=0 subdir=lewm_dmc_reacher_seed0 output_model_name=lewm_dmc_reacher_seed0
+note: LeWM is an offline world-model baseline. Report results separately from DreamerV3/BTWM online RL tables.

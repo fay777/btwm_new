@@ -1,0 +1,7 @@
+[2026-06-16 13:20:01] model=dreamerv3 domain=atari task=atari100k_pong
+seed=1 gpu=0 steps=1000000 logdir=/data2/liguoqi/habmm/hab_z/btwm/runs/dreamerv3_atari_pong_seed1_v2_1m
+variant=v2 param_matched=1 inv_weight=0.05 head_weight=0.0 inv_bins=21 confidence_gating=False policy_weight=0.0
+command: python /data2/liguoqi/habmm/hab_z/btwm/dreamerv3/dreamerv3/main.py --logdir /data2/liguoqi/habmm/hab_z/btwm/runs/dreamerv3_atari_pong_seed1_v2_1m --configs atari100k --task atari100k_pong --seed 1 --run.steps 1000000 --replay.size 500000 --agent.use_btwm True --agent.inv_loss_weight 0.0 --agent.inv_head_loss_weight 0.0 --agent.inv_num_bins 21 --agent.inv_confidence_gating False --agent.inv_policy_weight 0.0 --batch_size 8 --batch_length 32 --report_length 32
+A.L.E: Arcade Learning Environment (version 0.9.0+750d7f9)
+[Powered by Stella]
+Could not load symbol cuFuncGetName. Error: /lib/x86_64-linux-gnu/libcuda.so.1: undefined symbol: cuFuncGetName

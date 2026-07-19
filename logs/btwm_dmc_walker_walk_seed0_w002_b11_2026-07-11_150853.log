@@ -1,0 +1,1249 @@
+[2026-07-11 15:08:54] model=btwm domain=dmc task=dmc_walker_walk
+seed=0 gpu=1 steps=300000 logdir=/home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11
+variant=v2 param_matched=1 inv_weight=0.02 head_weight=0.0 inv_bins=11 confidence_gating=False policy_weight=0.0
+command: python /home/zhangpeiying01/lfy/btwm-7.7/dreamerv3/dreamerv3/main.py --logdir /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11 --configs dmc_vision --task dmc_walker_walk --seed 0 --run.steps 300000 --replay.size 300000 --agent.use_btwm True --agent.inv_loss_weight 0.02 --agent.inv_head_loss_weight 0.0 --agent.inv_num_bins 11 --agent.inv_confidence_gating False --agent.inv_policy_weight 0.0
+2026-07-11 15:10:49.684552: E external/xla/xla/python/profiler/internal/python_hooks.cc:400] Can't import tensorflow.python.profiler.trace
+2026-07-11 15:10:55.213392: E external/xla/xla/python/profiler/internal/python_hooks.cc:400] Can't import tensorflow.python.profiler.trace
+---  ___                           __   ______ ---
+--- |   \ _ _ ___ __ _ _ __  ___ _ \ \ / /__ / ---
+--- | |) | '_/ -_) _` | '  \/ -_) '/\ V / |_ \ ---
+--- |___/|_| \___\__,_|_|_|_\___|_|  \_/ |___/ ---
+Replica: 0 / 1
+Logdir: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11
+Run script: train
+Observations
+  is_first         Space(bool, shape=(), low=False, high=True)
+  is_last          Space(bool, shape=(), low=False, high=True)
+  is_terminal      Space(bool, shape=(), low=False, high=True)
+  reward           Space(float32, shape=(), low=-inf, high=inf)
+  image            Space(uint8, shape=(64, 64, 3), low=0, high=255)
+Actions
+  action           Space(float32, shape=(6,), low=-1.0, high=1.0)
+Extras
+  consec           Space(int32, shape=(), low=-2147483648, high=2147483647)
+  stepid           Space(uint8, shape=(20,), low=0, high=255)
+  dyn/deter        Space(float32, shape=(8192,), low=-inf, high=inf)
+  dyn/stoch        Space(float32, shape=(32, 64), low=-inf, high=inf)
+JAX devices (1): [cuda:0]
+Policy devices: cuda:0
+Train devices:  cuda:0
+Initializing parameters...
+Optimizer opt has 168,129,360 params:
+    97,664,578 dyn
+    20,282,115 dec
+    12,850,431 val
+    12,601,356 pol
+    10,749,183 rew
+    10,488,833 con
+     3,492,864 enc
+Done initializing!
+Compiling 1 checkpoint groups...
+Largest checkpoint group: 2 GB
+Compiling train and report...
+Train cost analysis:
+  FLOPS:            4.4e+11
+  Memory (temp):    5.9e+09
+  Memory (inputs):  2.1e+09
+  Memory (outputs): 2.1e+09
+  Memory (code):    4.2e+06
+
+Report cost analysis:
+  FLOPS:            9.6e+09
+  Memory (temp):    6.7e+08
+  Memory (inputs):  5.1e+08
+  Memory (outputs): 1.0e+07
+  Memory (code):    8.1e+06
+
+Done compiling!
+Found existing checkpoint.
+Loading checkpoint: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/ckpt/20260711T145949F622093
+Loaded checkpoint.
+Start training loop
+Start JAX profiler: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11
+Stop JAX profiler
+
+--------------------[Agent Step 3_664]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.18 / train/inv/ce 2.32 / train/inv/confidence 0.1 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.97 / train/inv/head_weight 0 / train/inv/objective 0.97 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.06 / train/loss/dyn 7.99 / train/loss/image 194.4 / train/loss/inv 0.02 / train/loss/policy 0.74 / train/loss/rep 7.99 / train/loss/repval 7.36 / train/loss/rew 3.08 / train/loss/value 5.37 / replay/replay_ratio 159.94 / fps/policy 27.97 / fps/train 3166.4
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 5_440]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.3 / train/inv/ce 2.07 / train/inv/confidence 0.13 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.86 / train/inv/head_weight 0 / train/inv/objective 0.86 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 6.11 / train/loss/image 54.77 / train/loss/inv 0.02 / train/loss/policy 1.62 / train/loss/rep 6.11 / train/loss/repval 3.37 / train/loss/rew 0.51 / train/loss/value 2.09 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3786.61
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 7_216]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.44 / train/inv/ce 1.75 / train/inv/confidence 0.19 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.73 / train/inv/head_weight 0 / train/inv/objective 0.73 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 7.54 / train/loss/image 35.54 / train/loss/inv 0.01 / train/loss/policy 1.11 / train/loss/rep 7.54 / train/loss/repval 2.31 / train/loss/rew 0.49 / train/loss/value 1.78 / replay/replay_ratio 260 / fps/policy 14.75 / fps/train 3776.13
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 8_992]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.53 / train/inv/ce 1.53 / train/inv/confidence 0.23 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 7.21 / train/loss/image 27.33 / train/loss/inv 0.01 / train/loss/policy 5.5e-3 / train/loss/rep 7.21 / train/loss/repval 2.04 / train/loss/rew 0.49 / train/loss/value 1.66 / replay/replay_ratio 260 / fps/policy 14.69 / fps/train 3761.16
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 10_768]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.57 / train/inv/ce 1.38 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.57 / train/inv/head_weight 0 / train/inv/objective 0.57 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 6.85 / train/loss/image 22.63 / train/loss/inv 0.01 / train/loss/policy 0.03 / train/loss/rep 6.85 / train/loss/repval 1.9 / train/loss/rew 0.5 / train/loss/value 1.57 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.72
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 12_544]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.6 / train/inv/ce 1.28 / train/inv/confidence 0.3 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.54 / train/inv/head_weight 0 / train/inv/objective 0.54 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 6.64 / train/loss/image 19.72 / train/loss/inv 0.01 / train/loss/policy -0.07 / train/loss/rep 6.64 / train/loss/repval 1.67 / train/loss/rew 0.51 / train/loss/value 1.41 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3788.99
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 14_320]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.62 / train/inv/ce 1.21 / train/inv/confidence 0.33 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.5 / train/inv/head_weight 0 / train/inv/objective 0.5 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 6.45 / train/loss/image 17.18 / train/loss/inv 0.01 / train/loss/policy -7.9e-3 / train/loss/rep 6.45 / train/loss/repval 1.53 / train/loss/rew 0.5 / train/loss/value 1.35 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3788.18
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 16_096]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 127.41 / episode/length 1001 / train/acc/inv 0.62 / train/inv/ce 1.2 / train/inv/confidence 0.34 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.5 / train/inv/head_weight 0 / train/inv/objective 0.5 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 6.4 / train/loss/image 16.27 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 6.4 / train/loss/repval 1.38 / train/loss/rew 0.51 / train/loss/value 1.23 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3781.93
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 17_872]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.62 / train/inv/ce 1.19 / train/inv/confidence 0.35 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.5 / train/inv/head_weight 0 / train/inv/objective 0.5 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 6.31 / train/loss/image 15.96 / train/loss/inv 9.9e-3 / train/loss/policy -0.03 / train/loss/rep 6.31 / train/loss/repval 1.24 / train/loss/rew 0.51 / train/loss/value 1.12 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.07
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 19_648]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.62 / train/inv/ce 1.16 / train/inv/confidence 0.36 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.49 / train/inv/head_weight 0 / train/inv/objective 0.49 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 6.05 / train/loss/image 14.49 / train/loss/inv 9.7e-3 / train/loss/policy -0.1 / train/loss/rep 6.05 / train/loss/repval 1.2 / train/loss/rew 0.51 / train/loss/value 1.08 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3779.43
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 21_424]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.63 / train/inv/ce 1.14 / train/inv/confidence 0.37 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.48 / train/inv/head_weight 0 / train/inv/objective 0.48 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 5.93 / train/loss/image 13.53 / train/loss/inv 9.5e-3 / train/loss/policy -0.08 / train/loss/rep 5.93 / train/loss/repval 1.16 / train/loss/rew 0.52 / train/loss/value 1.04 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.9
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 23_200]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.63 / train/inv/ce 1.12 / train/inv/confidence 0.37 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.47 / train/inv/head_weight 0 / train/inv/objective 0.47 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 5.83 / train/loss/image 12.73 / train/loss/inv 9.4e-3 / train/loss/policy -0.1 / train/loss/rep 5.83 / train/loss/repval 1.14 / train/loss/rew 0.52 / train/loss/value 1.02 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3787.26
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 24_976]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.64 / train/inv/ce 1.08 / train/inv/confidence 0.39 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.45 / train/inv/head_weight 0 / train/inv/objective 0.45 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 5.65 / train/loss/image 12 / train/loss/inv 9e-3 / train/loss/policy -0.11 / train/loss/rep 5.65 / train/loss/repval 1.15 / train/loss/rew 0.52 / train/loss/value 1.06 / replay/replay_ratio 260 / fps/policy 14.75 / fps/train 3775.59
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 26_752]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.64 / train/inv/ce 1.08 / train/inv/confidence 0.39 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.45 / train/inv/head_weight 0 / train/inv/objective 0.45 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 5.58 / train/loss/image 11.53 / train/loss/inv 9e-3 / train/loss/policy -0.08 / train/loss/rep 5.58 / train/loss/repval 1.08 / train/loss/rew 0.52 / train/loss/value 0.97 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3780.65
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 28_528]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.64 / train/inv/ce 1.08 / train/inv/confidence 0.39 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.45 / train/inv/head_weight 0 / train/inv/objective 0.45 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 5.54 / train/loss/image 11.05 / train/loss/inv 9e-3 / train/loss/policy -0.09 / train/loss/rep 5.54 / train/loss/repval 1.13 / train/loss/rew 0.52 / train/loss/value 1.07 / replay/replay_ratio 260 / fps/policy 14.75 / fps/train 3775.21
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 30_304]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.64 / train/inv/ce 1.07 / train/inv/confidence 0.39 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.45 / train/inv/head_weight 0 / train/inv/objective 0.45 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 5.42 / train/loss/image 10.56 / train/loss/inv 8.9e-3 / train/loss/policy -0.08 / train/loss/rep 5.42 / train/loss/repval 1.01 / train/loss/rew 0.52 / train/loss/value 0.91 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3784.16
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 32_080]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 425.6 / episode/length 1001 / train/acc/inv 0.64 / train/inv/ce 1.06 / train/inv/confidence 0.4 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.44 / train/inv/head_weight 0 / train/inv/objective 0.44 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 5.27 / train/loss/image 10.1 / train/loss/inv 8.8e-3 / train/loss/policy -0.09 / train/loss/rep 5.27 / train/loss/repval 1.14 / train/loss/rew 0.52 / train/loss/value 1.06 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.9
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 33_856]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.64 / train/inv/ce 1.06 / train/inv/confidence 0.4 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.44 / train/inv/head_weight 0 / train/inv/objective 0.44 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 5.23 / train/loss/image 10.15 / train/loss/inv 8.9e-3 / train/loss/policy -0.08 / train/loss/rep 5.23 / train/loss/repval 1.09 / train/loss/rew 0.52 / train/loss/value 1.05 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3778.69
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 35_632]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.64 / train/inv/ce 1.06 / train/inv/confidence 0.4 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.44 / train/inv/head_weight 0 / train/inv/objective 0.44 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 5.09 / train/loss/image 9.59 / train/loss/inv 8.8e-3 / train/loss/policy -0.1 / train/loss/rep 5.09 / train/loss/repval 0.95 / train/loss/rew 0.52 / train/loss/value 0.86 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.25
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 37_408]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.64 / train/inv/ce 1.04 / train/inv/confidence 0.4 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.44 / train/inv/head_weight 0 / train/inv/objective 0.44 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.95 / train/loss/image 9.06 / train/loss/inv 8.7e-3 / train/loss/policy -0.09 / train/loss/rep 4.95 / train/loss/repval 1.06 / train/loss/rew 0.52 / train/loss/value 0.96 / replay/replay_ratio 260 / fps/policy 14.75 / fps/train 3775.09
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 39_184]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.63 / train/inv/ce 1.05 / train/inv/confidence 0.4 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.44 / train/inv/head_weight 0 / train/inv/objective 0.44 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.92 / train/loss/image 8.8 / train/loss/inv 8.8e-3 / train/loss/policy -0.07 / train/loss/rep 4.92 / train/loss/repval 1.15 / train/loss/rew 0.52 / train/loss/value 1.11 / replay/replay_ratio 260 / fps/policy 14.74 / fps/train 3772.42
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 40_960]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.64 / train/inv/ce 1.04 / train/inv/confidence 0.41 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.43 / train/inv/head_weight 0 / train/inv/objective 0.43 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.77 / train/loss/image 8.42 / train/loss/inv 8.7e-3 / train/loss/policy -0.09 / train/loss/rep 4.77 / train/loss/repval 1.07 / train/loss/rew 0.52 / train/loss/value 1.06 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3787.55
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 42_736]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.64 / train/inv/ce 1.04 / train/inv/confidence 0.41 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.44 / train/inv/head_weight 0 / train/inv/objective 0.44 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.73 / train/loss/image 8.16 / train/loss/inv 8.7e-3 / train/loss/policy -0.09 / train/loss/rep 4.73 / train/loss/repval 0.93 / train/loss/rew 0.52 / train/loss/value 0.84 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3781.88
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 44_512]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.63 / train/inv/ce 1.06 / train/inv/confidence 0.4 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.44 / train/inv/head_weight 0 / train/inv/objective 0.44 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.6 / train/loss/image 7.86 / train/loss/inv 8.8e-3 / train/loss/policy -0.09 / train/loss/rep 4.6 / train/loss/repval 0.95 / train/loss/rew 0.52 / train/loss/value 0.82 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3784.64
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 46_288]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.63 / train/inv/ce 1.04 / train/inv/confidence 0.41 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.44 / train/inv/head_weight 0 / train/inv/objective 0.44 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.54 / train/loss/image 7.65 / train/loss/inv 8.7e-3 / train/loss/policy -0.08 / train/loss/rep 4.54 / train/loss/repval 1.06 / train/loss/rew 0.52 / train/loss/value 0.98 / replay/replay_ratio 260 / fps/policy 14.71 / fps/train 3766.96
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 48_064]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 592.83 / episode/length 1001 / train/acc/inv 0.62 / train/inv/ce 1.07 / train/inv/confidence 0.4 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.45 / train/inv/head_weight 0 / train/inv/objective 0.45 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.53 / train/loss/image 7.45 / train/loss/inv 8.9e-3 / train/loss/policy -0.08 / train/loss/rep 4.53 / train/loss/repval 1.15 / train/loss/rew 0.52 / train/loss/value 1.13 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.83
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 49_840]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.62 / train/inv/ce 1.08 / train/inv/confidence 0.4 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.45 / train/inv/head_weight 0 / train/inv/objective 0.45 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.51 / train/loss/image 7.68 / train/loss/inv 9e-3 / train/loss/policy -0.08 / train/loss/rep 4.51 / train/loss/repval 1.16 / train/loss/rew 0.52 / train/loss/value 1.17 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3778.12
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 51_616]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.62 / train/inv/ce 1.1 / train/inv/confidence 0.39 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.46 / train/inv/head_weight 0 / train/inv/objective 0.46 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.44 / train/loss/image 7.61 / train/loss/inv 9.1e-3 / train/loss/policy -0.06 / train/loss/rep 4.44 / train/loss/repval 1.08 / train/loss/rew 0.52 / train/loss/value 1.07 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3777.51
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 53_392]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.61 / train/inv/ce 1.1 / train/inv/confidence 0.39 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.46 / train/inv/head_weight 0 / train/inv/objective 0.46 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.4 / train/loss/image 7.33 / train/loss/inv 9.2e-3 / train/loss/policy -0.07 / train/loss/rep 4.4 / train/loss/repval 0.96 / train/loss/rew 0.52 / train/loss/value 0.87 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3781.44
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Saving checkpoint: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/ckpt/20260711T161016F563104
+Saved checkpoint.
+
+--------------------[Agent Step 55_120]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.61 / train/inv/ce 1.11 / train/inv/confidence 0.39 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.46 / train/inv/head_weight 0 / train/inv/objective 0.46 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.33 / train/loss/image 7.04 / train/loss/inv 9.3e-3 / train/loss/policy -0.07 / train/loss/rep 4.33 / train/loss/repval 0.87 / train/loss/rew 0.52 / train/loss/value 0.72 / replay/replay_ratio 260 / fps/policy 14.39 / fps/train 3683.54
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 56_896]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.6 / train/inv/ce 1.13 / train/inv/confidence 0.38 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.47 / train/inv/head_weight 0 / train/inv/objective 0.47 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.32 / train/loss/image 6.95 / train/loss/inv 9.4e-3 / train/loss/policy -0.06 / train/loss/rep 4.32 / train/loss/repval 0.84 / train/loss/rew 0.52 / train/loss/value 0.7 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3787.8
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 58_672]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.6 / train/inv/ce 1.13 / train/inv/confidence 0.38 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.47 / train/inv/head_weight 0 / train/inv/objective 0.47 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.31 / train/loss/image 6.9 / train/loss/inv 9.4e-3 / train/loss/policy -0.05 / train/loss/rep 4.31 / train/loss/repval 0.9 / train/loss/rew 0.52 / train/loss/value 0.79 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.34
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 60_448]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.59 / train/inv/ce 1.15 / train/inv/confidence 0.38 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.48 / train/inv/head_weight 0 / train/inv/objective 0.48 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.25 / train/loss/image 6.73 / train/loss/inv 9.6e-3 / train/loss/policy -0.05 / train/loss/rep 4.25 / train/loss/repval 0.96 / train/loss/rew 0.52 / train/loss/value 0.9 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3780.48
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 62_224]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.59 / train/inv/ce 1.16 / train/inv/confidence 0.37 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.48 / train/inv/head_weight 0 / train/inv/objective 0.48 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.22 / train/loss/image 6.63 / train/loss/inv 9.6e-3 / train/loss/policy -0.05 / train/loss/rep 4.22 / train/loss/repval 1.02 / train/loss/rew 0.52 / train/loss/value 1.01 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3784.65
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 64_000]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.6 / train/inv/ce 1.14 / train/inv/confidence 0.38 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.48 / train/inv/head_weight 0 / train/inv/objective 0.48 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.2 / train/loss/image 6.58 / train/loss/inv 9.5e-3 / train/loss/policy -0.06 / train/loss/rep 4.2 / train/loss/repval 1.07 / train/loss/rew 0.52 / train/loss/value 1.1 / replay/replay_ratio 260 / fps/policy 14.72 / fps/train 3768.33
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 65_776]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 643.28 / episode/length 1001 / train/acc/inv 0.59 / train/inv/ce 1.17 / train/inv/confidence 0.37 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.49 / train/inv/head_weight 0 / train/inv/objective 0.49 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.21 / train/loss/image 6.65 / train/loss/inv 9.7e-3 / train/loss/policy -0.06 / train/loss/rep 4.21 / train/loss/repval 1.12 / train/loss/rew 0.52 / train/loss/value 1.17 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3786.36
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 67_568]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.59 / train/inv/ce 1.17 / train/inv/confidence 0.37 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.49 / train/inv/head_weight 0 / train/inv/objective 0.49 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.1 / train/loss/image 6.49 / train/loss/inv 9.8e-3 / train/loss/policy -0.06 / train/loss/rep 4.1 / train/loss/repval 1.15 / train/loss/rew 0.52 / train/loss/value 1.22 / replay/replay_ratio 260 / fps/policy 14.81 / fps/train 3790.77
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 69_344]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.58 / train/inv/ce 1.18 / train/inv/confidence 0.37 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.49 / train/inv/head_weight 0 / train/inv/objective 0.49 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.1 / train/loss/image 6.34 / train/loss/inv 9.8e-3 / train/loss/policy -0.06 / train/loss/rep 4.1 / train/loss/repval 1.18 / train/loss/rew 0.52 / train/loss/value 1.25 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3778.46
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 71_120]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.58 / train/inv/ce 1.19 / train/inv/confidence 0.36 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.5 / train/inv/head_weight 0 / train/inv/objective 0.5 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.13 / train/loss/image 6.31 / train/loss/inv 9.9e-3 / train/loss/policy -0.07 / train/loss/rep 4.13 / train/loss/repval 1.19 / train/loss/rew 0.52 / train/loss/value 1.24 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.58
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 72_896]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.58 / train/inv/ce 1.19 / train/inv/confidence 0.36 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.5 / train/inv/head_weight 0 / train/inv/objective 0.5 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.1 / train/loss/image 6.23 / train/loss/inv 9.9e-3 / train/loss/policy -0.07 / train/loss/rep 4.1 / train/loss/repval 1.18 / train/loss/rew 0.53 / train/loss/value 1.2 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3781.19
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 74_672]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.58 / train/inv/ce 1.19 / train/inv/confidence 0.36 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.5 / train/inv/head_weight 0 / train/inv/objective 0.5 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4 / train/loss/image 6.05 / train/loss/inv 9.9e-3 / train/loss/policy -0.07 / train/loss/rep 4 / train/loss/repval 1.15 / train/loss/rew 0.52 / train/loss/value 1.11 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.52
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 76_448]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.57 / train/inv/ce 1.22 / train/inv/confidence 0.35 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.51 / train/inv/head_weight 0 / train/inv/objective 0.51 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.07 / train/loss/image 6.04 / train/loss/inv 0.01 / train/loss/policy -0.07 / train/loss/rep 4.07 / train/loss/repval 1.05 / train/loss/rew 0.53 / train/loss/value 0.91 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3782.56
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 78_224]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.56 / train/inv/ce 1.22 / train/inv/confidence 0.35 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.51 / train/inv/head_weight 0 / train/inv/objective 0.51 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.06 / train/loss/image 5.99 / train/loss/inv 0.01 / train/loss/policy -0.07 / train/loss/rep 4.06 / train/loss/repval 0.95 / train/loss/rew 0.53 / train/loss/value 0.74 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.22
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 80_000]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.57 / train/inv/ce 1.22 / train/inv/confidence 0.35 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.51 / train/inv/head_weight 0 / train/inv/objective 0.51 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4 / train/loss/image 5.93 / train/loss/inv 0.01 / train/loss/policy -0.06 / train/loss/rep 4 / train/loss/repval 0.86 / train/loss/rew 0.53 / train/loss/value 0.68 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3778.33
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 81_776]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 704.08 / episode/length 1001 / train/acc/inv 0.56 / train/inv/ce 1.24 / train/inv/confidence 0.35 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.52 / train/inv/head_weight 0 / train/inv/objective 0.52 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.12 / train/loss/image 6.14 / train/loss/inv 0.01 / train/loss/policy -0.07 / train/loss/rep 4.12 / train/loss/repval 0.83 / train/loss/rew 0.53 / train/loss/value 0.73 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3778.69
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 83_552]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.56 / train/inv/ce 1.24 / train/inv/confidence 0.35 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.52 / train/inv/head_weight 0 / train/inv/objective 0.52 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.03 / train/loss/image 6.04 / train/loss/inv 0.01 / train/loss/policy -0.07 / train/loss/rep 4.03 / train/loss/repval 0.9 / train/loss/rew 0.53 / train/loss/value 0.88 / replay/replay_ratio 260 / fps/policy 14.75 / fps/train 3776.8
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 85_328]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.56 / train/inv/ce 1.25 / train/inv/confidence 0.34 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.52 / train/inv/head_weight 0 / train/inv/objective 0.52 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.04 / train/loss/image 5.98 / train/loss/inv 0.01 / train/loss/policy -0.07 / train/loss/rep 4.04 / train/loss/repval 1.01 / train/loss/rew 0.53 / train/loss/value 1.05 / replay/replay_ratio 260 / fps/policy 14.75 / fps/train 3775.75
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 87_104]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.55 / train/inv/ce 1.26 / train/inv/confidence 0.34 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.53 / train/inv/head_weight 0 / train/inv/objective 0.53 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4.01 / train/loss/image 5.88 / train/loss/inv 0.01 / train/loss/policy -0.07 / train/loss/rep 4.01 / train/loss/repval 1.1 / train/loss/rew 0.53 / train/loss/value 1.18 / replay/replay_ratio 260 / fps/policy 14.75 / fps/train 3776.12
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 88_880]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.55 / train/inv/ce 1.26 / train/inv/confidence 0.34 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.53 / train/inv/head_weight 0 / train/inv/objective 0.53 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 4 / train/loss/image 5.78 / train/loss/inv 0.01 / train/loss/policy -0.06 / train/loss/rep 4 / train/loss/repval 1.17 / train/loss/rew 0.53 / train/loss/value 1.23 / replay/replay_ratio 260 / fps/policy 14.74 / fps/train 3774.66
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 90_656]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.55 / train/inv/ce 1.26 / train/inv/confidence 0.34 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.53 / train/inv/head_weight 0 / train/inv/objective 0.53 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.98 / train/loss/image 5.71 / train/loss/inv 0.01 / train/loss/policy -0.06 / train/loss/rep 3.98 / train/loss/repval 1.19 / train/loss/rew 0.54 / train/loss/value 1.19 / replay/replay_ratio 260 / fps/policy 14.74 / fps/train 3772.57
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 92_432]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.55 / train/inv/ce 1.26 / train/inv/confidence 0.34 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.53 / train/inv/head_weight 0 / train/inv/objective 0.53 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.93 / train/loss/image 5.66 / train/loss/inv 0.01 / train/loss/policy -0.05 / train/loss/rep 3.93 / train/loss/repval 1.13 / train/loss/rew 0.53 / train/loss/value 1.03 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.61
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 94_208]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.55 / train/inv/ce 1.26 / train/inv/confidence 0.34 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.53 / train/inv/head_weight 0 / train/inv/objective 0.53 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.88 / train/loss/image 5.54 / train/loss/inv 0.01 / train/loss/policy -0.04 / train/loss/rep 3.88 / train/loss/repval 1.02 / train/loss/rew 0.53 / train/loss/value 0.74 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.5
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 95_984]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.55 / train/inv/ce 1.27 / train/inv/confidence 0.33 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.53 / train/inv/head_weight 0 / train/inv/objective 0.53 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.95 / train/loss/image 5.53 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.95 / train/loss/repval 0.94 / train/loss/rew 0.54 / train/loss/value 0.69 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.64
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 97_760]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 710.19 / episode/length 1001 / train/acc/inv 0.55 / train/inv/ce 1.27 / train/inv/confidence 0.33 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.53 / train/inv/head_weight 0 / train/inv/objective 0.53 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.94 / train/loss/image 5.65 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.94 / train/loss/repval 0.89 / train/loss/rew 0.54 / train/loss/value 0.76 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.23
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 99_536]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.54 / train/inv/ce 1.29 / train/inv/confidence 0.33 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.54 / train/inv/head_weight 0 / train/inv/objective 0.54 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.94 / train/loss/image 5.6 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.94 / train/loss/repval 0.87 / train/loss/rew 0.54 / train/loss/value 0.84 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3782.78
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 101_312]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.54 / train/inv/ce 1.29 / train/inv/confidence 0.33 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.54 / train/inv/head_weight 0 / train/inv/objective 0.54 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.92 / train/loss/image 5.47 / train/loss/inv 0.01 / train/loss/policy -9.4e-3 / train/loss/rep 3.92 / train/loss/repval 0.89 / train/loss/rew 0.54 / train/loss/value 0.96 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3787.82
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 103_104]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.54 / train/inv/ce 1.29 / train/inv/confidence 0.33 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.54 / train/inv/head_weight 0 / train/inv/objective 0.54 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.87 / train/loss/image 5.37 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.87 / train/loss/repval 0.98 / train/loss/rew 0.54 / train/loss/value 1.08 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.15
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 104_880]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.54 / train/inv/ce 1.3 / train/inv/confidence 0.33 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.54 / train/inv/head_weight 0 / train/inv/objective 0.54 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.87 / train/loss/image 5.33 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.87 / train/loss/repval 1.06 / train/loss/rew 0.54 / train/loss/value 1.17 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3779.13
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 106_656]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.54 / train/inv/ce 1.3 / train/inv/confidence 0.33 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.54 / train/inv/head_weight 0 / train/inv/objective 0.54 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.86 / train/loss/image 5.27 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.86 / train/loss/repval 1.12 / train/loss/rew 0.54 / train/loss/value 1.22 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3784.35
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Saving checkpoint: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/ckpt/20260711T171016F659175
+Saved checkpoint.
+
+--------------------[Agent Step 108_400]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.54 / train/inv/ce 1.3 / train/inv/confidence 0.33 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.54 / train/inv/head_weight 0 / train/inv/objective 0.54 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.83 / train/loss/image 5.18 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.83 / train/loss/repval 1.16 / train/loss/rew 0.54 / train/loss/value 1.25 / replay/replay_ratio 260 / fps/policy 14.41 / fps/train 3687.79
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 110_176]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.54 / train/inv/ce 1.31 / train/inv/confidence 0.32 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.55 / train/inv/head_weight 0 / train/inv/objective 0.55 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.77 / train/loss/image 5.13 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.77 / train/loss/repval 1.18 / train/loss/rew 0.54 / train/loss/value 1.26 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3784.22
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 111_952]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.54 / train/inv/ce 1.31 / train/inv/confidence 0.32 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.55 / train/inv/head_weight 0 / train/inv/objective 0.55 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.83 / train/loss/image 5.08 / train/loss/inv 0.01 / train/loss/policy -9.7e-3 / train/loss/rep 3.83 / train/loss/repval 1.2 / train/loss/rew 0.54 / train/loss/value 1.25 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3787.01
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 113_728]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 765.21 / episode/length 1001 / train/acc/inv 0.53 / train/inv/ce 1.33 / train/inv/confidence 0.32 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.55 / train/inv/head_weight 0 / train/inv/objective 0.55 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.93 / train/loss/image 5.21 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.93 / train/loss/repval 1.21 / train/loss/rew 0.55 / train/loss/value 1.24 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3782.46
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 115_504]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.54 / train/inv/ce 1.32 / train/inv/confidence 0.32 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.55 / train/inv/head_weight 0 / train/inv/objective 0.55 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.79 / train/loss/image 5.13 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.79 / train/loss/repval 1.21 / train/loss/rew 0.54 / train/loss/value 1.21 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3784.02
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 117_280]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.53 / train/inv/ce 1.33 / train/inv/confidence 0.32 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.55 / train/inv/head_weight 0 / train/inv/objective 0.55 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.76 / train/loss/image 5.04 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.76 / train/loss/repval 1.19 / train/loss/rew 0.55 / train/loss/value 1.19 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.71
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 119_072]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.53 / train/inv/ce 1.34 / train/inv/confidence 0.31 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.56 / train/inv/head_weight 0 / train/inv/objective 0.56 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.81 / train/loss/image 5.01 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.81 / train/loss/repval 1.19 / train/loss/rew 0.55 / train/loss/value 1.16 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3789.63
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 120_864]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.53 / train/inv/ce 1.34 / train/inv/confidence 0.31 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.56 / train/inv/head_weight 0 / train/inv/objective 0.56 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.8 / train/loss/image 4.99 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.8 / train/loss/repval 1.18 / train/loss/rew 0.55 / train/loss/value 1.14 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3788.42
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 122_640]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.54 / train/inv/ce 1.33 / train/inv/confidence 0.32 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.55 / train/inv/head_weight 0 / train/inv/objective 0.55 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.71 / train/loss/image 4.92 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.71 / train/loss/repval 1.18 / train/loss/rew 0.55 / train/loss/value 1.12 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.69
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 124_416]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.53 / train/inv/ce 1.35 / train/inv/confidence 0.31 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.56 / train/inv/head_weight 0 / train/inv/objective 0.56 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.74 / train/loss/image 4.89 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.74 / train/loss/repval 1.18 / train/loss/rew 0.55 / train/loss/value 1.1 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3789.87
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 126_192]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.53 / train/inv/ce 1.35 / train/inv/confidence 0.31 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.56 / train/inv/head_weight 0 / train/inv/objective 0.56 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.73 / train/loss/image 4.83 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.73 / train/loss/repval 1.17 / train/loss/rew 0.55 / train/loss/value 1.08 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3786.82
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 127_968]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.53 / train/inv/ce 1.35 / train/inv/confidence 0.31 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.56 / train/inv/head_weight 0 / train/inv/objective 0.56 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.7 / train/loss/image 4.81 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.7 / train/loss/repval 1.16 / train/loss/rew 0.55 / train/loss/value 1.07 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.79
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 129_760]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 923.18 / episode/length 1001 / train/acc/inv 0.53 / train/inv/ce 1.36 / train/inv/confidence 0.31 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.57 / train/inv/head_weight 0 / train/inv/objective 0.57 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.85 / train/loss/image 4.98 / train/loss/inv 0.01 / train/loss/policy -9.1e-3 / train/loss/rep 3.85 / train/loss/repval 1.15 / train/loss/rew 0.55 / train/loss/value 1.05 / replay/replay_ratio 260 / fps/policy 14.81 / fps/train 3791.69
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 131_536]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.37 / train/inv/confidence 0.3 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.57 / train/inv/head_weight 0 / train/inv/objective 0.57 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.66 / train/loss/image 4.8 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.66 / train/loss/repval 1.14 / train/loss/rew 0.55 / train/loss/value 1.04 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3786.82
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 133_328]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.53 / train/inv/ce 1.37 / train/inv/confidence 0.31 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.57 / train/inv/head_weight 0 / train/inv/objective 0.57 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.65 / train/loss/image 4.71 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.65 / train/loss/repval 1.13 / train/loss/rew 0.55 / train/loss/value 1.02 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3786.87
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 135_104]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.38 / train/inv/confidence 0.3 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.57 / train/inv/head_weight 0 / train/inv/objective 0.57 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.64 / train/loss/image 4.67 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.64 / train/loss/repval 1.13 / train/loss/rew 0.55 / train/loss/value 1.01 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3784.68
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 136_880]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.53 / train/inv/ce 1.38 / train/inv/confidence 0.3 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.57 / train/inv/head_weight 0 / train/inv/objective 0.57 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.62 / train/loss/image 4.62 / train/loss/inv 0.01 / train/loss/policy -8.8e-3 / train/loss/rep 3.62 / train/loss/repval 1.12 / train/loss/rew 0.55 / train/loss/value 1 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3788.85
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 138_656]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.53 / train/inv/ce 1.37 / train/inv/confidence 0.31 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.57 / train/inv/head_weight 0 / train/inv/objective 0.57 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.66 / train/loss/image 4.63 / train/loss/inv 0.01 / train/loss/policy -6.5e-3 / train/loss/rep 3.66 / train/loss/repval 1.11 / train/loss/rew 0.56 / train/loss/value 0.99 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3788.34
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 140_432]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.53 / train/inv/ce 1.38 / train/inv/confidence 0.31 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.57 / train/inv/head_weight 0 / train/inv/objective 0.57 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.66 / train/loss/image 4.6 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.66 / train/loss/repval 1.11 / train/loss/rew 0.56 / train/loss/value 0.99 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3782.54
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 142_208]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.53 / train/inv/ce 1.38 / train/inv/confidence 0.3 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.58 / train/inv/head_weight 0 / train/inv/objective 0.58 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.59 / train/loss/image 4.5 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.59 / train/loss/repval 1.12 / train/loss/rew 0.56 / train/loss/value 0.99 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3788.24
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 143_984]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.53 / train/inv/ce 1.39 / train/inv/confidence 0.3 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.58 / train/inv/head_weight 0 / train/inv/objective 0.58 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.58 / train/loss/image 4.47 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.58 / train/loss/repval 1.1 / train/loss/rew 0.56 / train/loss/value 0.98 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.14
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 145_776]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 937.1 / episode/length 1001 / train/acc/inv 0.52 / train/inv/ce 1.39 / train/inv/confidence 0.3 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.58 / train/inv/head_weight 0 / train/inv/objective 0.58 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.73 / train/loss/image 4.67 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.73 / train/loss/repval 1.1 / train/loss/rew 0.56 / train/loss/value 0.98 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3781.94
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 147_552]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.4 / train/inv/confidence 0.3 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.59 / train/inv/head_weight 0 / train/inv/objective 0.59 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.6 / train/loss/image 4.57 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.6 / train/loss/repval 1.09 / train/loss/rew 0.56 / train/loss/value 0.97 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3787.88
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 149_328]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.4 / train/inv/confidence 0.3 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.59 / train/inv/head_weight 0 / train/inv/objective 0.59 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.59 / train/loss/image 4.53 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.59 / train/loss/repval 1.1 / train/loss/rew 0.56 / train/loss/value 0.98 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3782.94
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 151_120]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.41 / train/inv/confidence 0.3 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.59 / train/inv/head_weight 0 / train/inv/objective 0.59 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.61 / train/loss/image 4.51 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.61 / train/loss/repval 1.09 / train/loss/rew 0.56 / train/loss/value 0.98 / replay/replay_ratio 260 / fps/policy 14.81 / fps/train 3790.5
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 152_896]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.42 / train/inv/confidence 0.29 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.59 / train/inv/head_weight 0 / train/inv/objective 0.59 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.59 / train/loss/image 4.48 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.59 / train/loss/repval 1.08 / train/loss/rew 0.56 / train/loss/value 0.97 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3786.65
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 154_672]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.41 / train/inv/confidence 0.29 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.59 / train/inv/head_weight 0 / train/inv/objective 0.59 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.53 / train/loss/image 4.34 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.53 / train/loss/repval 1.08 / train/loss/rew 0.56 / train/loss/value 0.96 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.8
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 156_448]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.41 / train/inv/confidence 0.3 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.59 / train/inv/head_weight 0 / train/inv/objective 0.59 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.52 / train/loss/image 4.31 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.52 / train/loss/repval 1.08 / train/loss/rew 0.56 / train/loss/value 0.95 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3788.75
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 158_224]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.42 / train/inv/confidence 0.29 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.59 / train/inv/head_weight 0 / train/inv/objective 0.59 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.55 / train/loss/image 4.31 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.55 / train/loss/repval 1.07 / train/loss/rew 0.56 / train/loss/value 0.95 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3782.45
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 160_000]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.42 / train/inv/confidence 0.29 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.59 / train/inv/head_weight 0 / train/inv/objective 0.59 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.52 / train/loss/image 4.29 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.52 / train/loss/repval 1.07 / train/loss/rew 0.56 / train/loss/value 0.95 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3782.01
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Saving checkpoint: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/ckpt/20260711T181017F143827
+Saved checkpoint.
+
+--------------------[Agent Step 161_744]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 696.68 / episode/length 1001 / train/acc/inv 0.52 / train/inv/ce 1.42 / train/inv/confidence 0.29 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.59 / train/inv/head_weight 0 / train/inv/objective 0.59 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.62 / train/loss/image 4.36 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.62 / train/loss/repval 1.07 / train/loss/rew 0.57 / train/loss/value 0.95 / replay/replay_ratio 260 / fps/policy 14.41 / fps/train 3688.39
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 163_520]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.44 / train/inv/confidence 0.29 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.6 / train/inv/head_weight 0 / train/inv/objective 0.6 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.59 / train/loss/image 4.38 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.59 / train/loss/repval 1.06 / train/loss/rew 0.57 / train/loss/value 0.94 / replay/replay_ratio 260 / fps/policy 14.75 / fps/train 3775.95
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 165_296]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.43 / train/inv/confidence 0.29 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.6 / train/inv/head_weight 0 / train/inv/objective 0.6 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.46 / train/loss/image 4.25 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.46 / train/loss/repval 1.06 / train/loss/rew 0.56 / train/loss/value 0.94 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.26
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 167_072]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.43 / train/inv/confidence 0.29 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.59 / train/inv/head_weight 0 / train/inv/objective 0.59 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.45 / train/loss/image 4.2 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.45 / train/loss/repval 1.06 / train/loss/rew 0.57 / train/loss/value 0.93 / replay/replay_ratio 260 / fps/policy 14.75 / fps/train 3775.08
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 168_848]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.44 / train/inv/confidence 0.29 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.6 / train/inv/head_weight 0 / train/inv/objective 0.6 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.51 / train/loss/image 4.16 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.51 / train/loss/repval 1.05 / train/loss/rew 0.57 / train/loss/value 0.93 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.49
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 170_624]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.44 / train/inv/confidence 0.29 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.6 / train/inv/head_weight 0 / train/inv/objective 0.6 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.48 / train/loss/image 4.12 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.48 / train/loss/repval 1.04 / train/loss/rew 0.57 / train/loss/value 0.92 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3779.03
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 172_400]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.44 / train/inv/confidence 0.29 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.6 / train/inv/head_weight 0 / train/inv/objective 0.6 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.5 / train/loss/image 4.14 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.5 / train/loss/repval 1.04 / train/loss/rew 0.57 / train/loss/value 0.91 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.01
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 174_176]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.45 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.6 / train/inv/head_weight 0 / train/inv/objective 0.6 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.46 / train/loss/image 4.1 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.46 / train/loss/repval 1.03 / train/loss/rew 0.57 / train/loss/value 0.91 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3782.1
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 175_952]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.44 / train/inv/confidence 0.29 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.6 / train/inv/head_weight 0 / train/inv/objective 0.6 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.44 / train/loss/image 4.06 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.44 / train/loss/repval 1.03 / train/loss/rew 0.57 / train/loss/value 0.91 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3778.79
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 177_728]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 965.55 / episode/length 1001 / train/acc/inv 0.52 / train/inv/ce 1.45 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.61 / train/inv/head_weight 0 / train/inv/objective 0.61 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.59 / train/loss/image 4.24 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.59 / train/loss/repval 1.03 / train/loss/rew 0.57 / train/loss/value 0.9 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3779.98
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 179_504]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.46 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.61 / train/inv/head_weight 0 / train/inv/objective 0.61 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.5 / train/loss/image 4.2 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.5 / train/loss/repval 1.02 / train/loss/rew 0.57 / train/loss/value 0.9 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3777.48
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 181_280]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.46 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.61 / train/inv/head_weight 0 / train/inv/objective 0.61 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.42 / train/loss/image 4.1 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.42 / train/loss/repval 1.02 / train/loss/rew 0.57 / train/loss/value 0.89 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3779.68
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 183_056]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.46 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.61 / train/inv/head_weight 0 / train/inv/objective 0.61 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.39 / train/loss/image 4.03 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.39 / train/loss/repval 1.01 / train/loss/rew 0.57 / train/loss/value 0.89 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3777.33
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 184_832]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.46 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.61 / train/inv/head_weight 0 / train/inv/objective 0.61 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.43 / train/loss/image 4.03 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.43 / train/loss/repval 1.01 / train/loss/rew 0.57 / train/loss/value 0.89 / replay/replay_ratio 260 / fps/policy 14.75 / fps/train 3775.54
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 186_608]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.46 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.61 / train/inv/head_weight 0 / train/inv/objective 0.61 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.45 / train/loss/image 4.02 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.45 / train/loss/repval 1.01 / train/loss/rew 0.57 / train/loss/value 0.89 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3781.29
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 188_384]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.46 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.61 / train/inv/head_weight 0 / train/inv/objective 0.61 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.38 / train/loss/image 3.97 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.38 / train/loss/repval 1.01 / train/loss/rew 0.57 / train/loss/value 0.88 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3779.31
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 190_160]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.48 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.37 / train/loss/image 3.94 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.37 / train/loss/repval 1 / train/loss/rew 0.58 / train/loss/value 0.88 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3779.73
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 191_936]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.47 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.61 / train/inv/head_weight 0 / train/inv/objective 0.61 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.4 / train/loss/image 3.91 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.4 / train/loss/repval 1 / train/loss/rew 0.58 / train/loss/value 0.88 / replay/replay_ratio 260 / fps/policy 14.74 / fps/train 3773.48
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 193_712]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 972.05 / episode/length 1001 / train/acc/inv 0.52 / train/inv/ce 1.47 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.61 / train/inv/head_weight 0 / train/inv/objective 0.61 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.54 / train/loss/image 4.04 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.54 / train/loss/repval 1 / train/loss/rew 0.58 / train/loss/value 0.87 / replay/replay_ratio 260 / fps/policy 14.74 / fps/train 3773.81
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 195_488]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.48 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.36 / train/loss/image 3.95 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.36 / train/loss/repval 1 / train/loss/rew 0.58 / train/loss/value 0.87 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3780.84
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 197_264]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.48 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.36 / train/loss/image 3.91 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.36 / train/loss/repval 0.99 / train/loss/rew 0.58 / train/loss/value 0.88 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3777.97
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 199_040]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.49 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.38 / train/loss/image 3.86 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.38 / train/loss/repval 0.99 / train/loss/rew 0.58 / train/loss/value 0.87 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3784.32
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 200_816]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.48 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.34 / train/loss/image 3.84 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.34 / train/loss/repval 0.99 / train/loss/rew 0.58 / train/loss/value 0.87 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3787.22
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 202_592]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.48 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.33 / train/loss/image 3.81 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.33 / train/loss/repval 0.99 / train/loss/rew 0.58 / train/loss/value 0.86 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3782.81
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 204_368]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.48 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.36 / train/loss/image 3.8 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.36 / train/loss/repval 0.98 / train/loss/rew 0.58 / train/loss/value 0.86 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3786.67
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 206_144]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.49 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.43 / train/loss/image 3.81 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.43 / train/loss/repval 0.98 / train/loss/rew 0.58 / train/loss/value 0.86 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3784.19
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 207_936]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.49 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.36 / train/loss/image 3.82 / train/loss/inv 0.01 / train/loss/policy -0.03 / train/loss/rep 3.36 / train/loss/repval 0.98 / train/loss/rew 0.58 / train/loss/value 0.86 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3789.18
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 209_712]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 971.03 / episode/length 1001 / train/acc/inv 0.51 / train/inv/ce 1.49 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.46 / train/loss/image 3.89 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.46 / train/loss/repval 0.97 / train/loss/rew 0.58 / train/loss/value 0.85 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3786.65
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 211_488]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.49 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.38 / train/loss/image 3.89 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.38 / train/loss/repval 0.98 / train/loss/rew 0.58 / train/loss/value 0.85 / replay/replay_ratio 260 / fps/policy 14.75 / fps/train 3777.17
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 213_264]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.5 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.3 / train/loss/image 3.79 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.3 / train/loss/repval 0.97 / train/loss/rew 0.58 / train/loss/value 0.86 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3778.8
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Saving checkpoint: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/ckpt/20260711T191018F055437
+Saved checkpoint.
+
+--------------------[Agent Step 214_992]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.5 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.3 / train/loss/image 3.73 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.3 / train/loss/repval 0.97 / train/loss/rew 0.58 / train/loss/value 0.85 / replay/replay_ratio 260 / fps/policy 14.35 / fps/train 3673.96
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 216_768]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.5 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.34 / train/loss/image 3.73 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.34 / train/loss/repval 0.97 / train/loss/rew 0.58 / train/loss/value 0.85 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.31
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 218_544]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.52 / train/inv/ce 1.49 / train/inv/confidence 0.28 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.29 / train/loss/image 3.7 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.29 / train/loss/repval 0.97 / train/loss/rew 0.58 / train/loss/value 0.84 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.61
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 220_320]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.49 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.62 / train/inv/head_weight 0 / train/inv/objective 0.62 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.3 / train/loss/image 3.7 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.3 / train/loss/repval 0.97 / train/loss/rew 0.58 / train/loss/value 0.84 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3782.58
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 222_096]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.5 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.3 / train/loss/image 3.66 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.3 / train/loss/repval 0.96 / train/loss/rew 0.58 / train/loss/value 0.84 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3781.81
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 223_872]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.51 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.32 / train/loss/image 3.64 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.32 / train/loss/repval 0.95 / train/loss/rew 0.58 / train/loss/value 0.84 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3781.52
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 225_648]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 975.28 / episode/length 1001 / train/acc/inv 0.51 / train/inv/ce 1.51 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.32 / train/loss/image 3.72 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.32 / train/loss/repval 0.96 / train/loss/rew 0.58 / train/loss/value 0.84 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3781.77
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 227_424]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.51 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.35 / train/loss/image 3.74 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.35 / train/loss/repval 0.96 / train/loss/rew 0.59 / train/loss/value 0.85 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3782.32
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 229_200]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.52 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.29 / train/loss/image 3.68 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.29 / train/loss/repval 0.96 / train/loss/rew 0.58 / train/loss/value 0.84 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3778.05
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 230_976]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.52 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.28 / train/loss/image 3.64 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.28 / train/loss/repval 0.95 / train/loss/rew 0.58 / train/loss/value 0.84 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3782.25
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 232_752]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.51 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.24 / train/loss/image 3.58 / train/loss/inv 0.01 / train/loss/policy -8.2e-3 / train/loss/rep 3.24 / train/loss/repval 0.95 / train/loss/rew 0.58 / train/loss/value 0.83 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3782.67
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 234_528]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.51 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.26 / train/loss/image 3.6 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.26 / train/loss/repval 0.95 / train/loss/rew 0.59 / train/loss/value 0.83 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.55
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 236_304]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.52 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.24 / train/loss/image 3.54 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.24 / train/loss/repval 0.95 / train/loss/rew 0.59 / train/loss/value 0.83 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.92
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 238_080]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.52 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.24 / train/loss/image 3.53 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.24 / train/loss/repval 0.95 / train/loss/rew 0.59 / train/loss/value 0.83 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3780.88
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 239_856]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.52 / train/inv/confidence 0.27 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.26 / train/loss/image 3.56 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.26 / train/loss/repval 0.95 / train/loss/rew 0.59 / train/loss/value 0.84 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3787.17
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 241_632]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 956.96 / episode/length 1001 / train/acc/inv 0.51 / train/inv/ce 1.53 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.42 / train/loss/image 3.64 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.42 / train/loss/repval 0.95 / train/loss/rew 0.59 / train/loss/value 0.84 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.62
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 243_408]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.52 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.21 / train/loss/image 3.6 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.21 / train/loss/repval 0.95 / train/loss/rew 0.59 / train/loss/value 0.84 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3777.38
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 245_184]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.52 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.19 / train/loss/image 3.51 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.19 / train/loss/repval 0.95 / train/loss/rew 0.59 / train/loss/value 0.84 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3784.38
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 246_960]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.53 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.28 / train/loss/image 3.54 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.28 / train/loss/repval 0.94 / train/loss/rew 0.59 / train/loss/value 0.83 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.05
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 248_736]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.53 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.21 / train/loss/image 3.49 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.21 / train/loss/repval 0.93 / train/loss/rew 0.59 / train/loss/value 0.82 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3783.8
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 250_512]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.52 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.63 / train/inv/head_weight 0 / train/inv/objective 0.63 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.18 / train/loss/image 3.47 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.18 / train/loss/repval 0.93 / train/loss/rew 0.59 / train/loss/value 0.82 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.29
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 252_304]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.53 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.2 / train/loss/image 3.42 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.2 / train/loss/repval 0.92 / train/loss/rew 0.59 / train/loss/value 0.81 / replay/replay_ratio 260 / fps/policy 14.81 / fps/train 3790.12
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 254_080]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.5 / train/inv/ce 1.54 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.22 / train/loss/image 3.41 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.22 / train/loss/repval 0.92 / train/loss/rew 0.59 / train/loss/value 0.81 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3786.71
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 255_856]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.53 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.17 / train/loss/image 3.4 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.17 / train/loss/repval 0.92 / train/loss/rew 0.59 / train/loss/value 0.81 / replay/replay_ratio 260 / fps/policy 14.75 / fps/train 3775.38
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 257_632]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 953.18 / episode/length 1001 / train/acc/inv 0.5 / train/inv/ce 1.55 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.33 / train/loss/image 3.54 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.33 / train/loss/repval 0.92 / train/loss/rew 0.59 / train/loss/value 0.8 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.36
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 259_408]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.53 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.23 / train/loss/image 3.51 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.23 / train/loss/repval 0.92 / train/loss/rew 0.59 / train/loss/value 0.81 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3782.91
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 261_184]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.53 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.17 / train/loss/image 3.43 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.17 / train/loss/repval 0.92 / train/loss/rew 0.59 / train/loss/value 0.8 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3782.38
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 262_960]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.54 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.2 / train/loss/image 3.45 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.2 / train/loss/repval 0.92 / train/loss/rew 0.59 / train/loss/value 0.81 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3786.78
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 264_736]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.54 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.19 / train/loss/image 3.41 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.19 / train/loss/repval 0.92 / train/loss/rew 0.59 / train/loss/value 0.81 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3780.55
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 266_512]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.5 / train/inv/ce 1.55 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.65 / train/inv/head_weight 0 / train/inv/objective 0.65 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.18 / train/loss/image 3.38 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.18 / train/loss/repval 0.92 / train/loss/rew 0.59 / train/loss/value 0.81 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3787.03
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Saving checkpoint: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/ckpt/20260711T201018F153084
+Saved checkpoint.
+
+--------------------[Agent Step 268_240]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.53 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.14 / train/loss/image 3.37 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.14 / train/loss/repval 0.92 / train/loss/rew 0.59 / train/loss/value 0.81 / replay/replay_ratio 260 / fps/policy 14.35 / fps/train 3672.74
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 270_016]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.53 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.19 / train/loss/image 3.37 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.19 / train/loss/repval 0.92 / train/loss/rew 0.59 / train/loss/value 0.81 / replay/replay_ratio 260 / fps/policy 14.81 / fps/train 3791.27
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 271_808]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.54 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.24 / train/loss/image 3.4 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.24 / train/loss/repval 0.91 / train/loss/rew 0.59 / train/loss/value 0.8 / replay/replay_ratio 260 / fps/policy 14.81 / fps/train 3791.74
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 273_584]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 939.84 / episode/length 1001 / train/acc/inv 0.51 / train/inv/ce 1.54 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.27 / train/loss/image 3.5 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.27 / train/loss/repval 0.92 / train/loss/rew 0.59 / train/loss/value 0.8 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3787.93
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 275_376]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.5 / train/inv/ce 1.55 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.65 / train/inv/head_weight 0 / train/inv/objective 0.65 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.18 / train/loss/image 3.43 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.18 / train/loss/repval 0.91 / train/loss/rew 0.59 / train/loss/value 0.8 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3787.77
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 277_152]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.54 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.15 / train/loss/image 3.41 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.15 / train/loss/repval 0.91 / train/loss/rew 0.59 / train/loss/value 0.8 / replay/replay_ratio 260 / fps/policy 14.76 / fps/train 3778.32
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 278_928]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.5 / train/inv/ce 1.55 / train/inv/confidence 0.25 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.65 / train/inv/head_weight 0 / train/inv/objective 0.65 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.15 / train/loss/image 3.36 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.15 / train/loss/repval 0.9 / train/loss/rew 0.59 / train/loss/value 0.79 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3782.85
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 280_704]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.54 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.11 / train/loss/image 3.35 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.11 / train/loss/repval 0.9 / train/loss/rew 0.59 / train/loss/value 0.79 / replay/replay_ratio 260 / fps/policy 14.81 / fps/train 3790.26
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 282_480]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.55 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.65 / train/inv/head_weight 0 / train/inv/objective 0.65 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.24 / train/loss/image 3.37 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.24 / train/loss/repval 0.9 / train/loss/rew 0.59 / train/loss/value 0.79 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3780.03
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 284_256]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.54 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.64 / train/inv/head_weight 0 / train/inv/objective 0.64 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.11 / train/loss/image 3.3 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.11 / train/loss/repval 0.9 / train/loss/rew 0.59 / train/loss/value 0.79 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3785.66
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 286_032]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.55 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.65 / train/inv/head_weight 0 / train/inv/objective 0.65 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.14 / train/loss/image 3.29 / train/loss/inv 0.01 / train/loss/policy -0.02 / train/loss/rep 3.14 / train/loss/repval 0.9 / train/loss/rew 0.6 / train/loss/value 0.79 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3782.22
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 287_824]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.55 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.65 / train/inv/head_weight 0 / train/inv/objective 0.65 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.13 / train/loss/image 3.29 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.13 / train/loss/repval 0.9 / train/loss/rew 0.6 / train/loss/value 0.79 / replay/replay_ratio 260 / fps/policy 14.8 / fps/train 3788.08
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 289_616]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+episode/score 951.14 / episode/length 1001 / train/acc/inv 0.5 / train/inv/ce 1.56 / train/inv/confidence 0.25 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.65 / train/inv/head_weight 0 / train/inv/objective 0.65 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.25 / train/loss/image 3.37 / train/loss/inv 0.01 / train/loss/policy -7.5e-3 / train/loss/rep 3.25 / train/loss/repval 0.89 / train/loss/rew 0.6 / train/loss/value 0.79 / replay/replay_ratio 260 / fps/policy 14.81 / fps/train 3791.14
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 291_392]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.5 / train/inv/ce 1.57 / train/inv/confidence 0.25 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.65 / train/inv/head_weight 0 / train/inv/objective 0.65 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.2 / train/loss/image 3.34 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.2 / train/loss/repval 0.89 / train/loss/rew 0.6 / train/loss/value 0.79 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3782.08
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 293_168]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.55 / train/inv/confidence 0.26 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.65 / train/inv/head_weight 0 / train/inv/objective 0.65 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.06 / train/loss/image 3.28 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.06 / train/loss/repval 0.9 / train/loss/rew 0.6 / train/loss/value 0.79 / replay/replay_ratio 260 / fps/policy 14.79 / fps/train 3786.22
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 294_944]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.5 / train/inv/ce 1.57 / train/inv/confidence 0.25 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.65 / train/inv/head_weight 0 / train/inv/objective 0.65 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.17 / train/loss/image 3.28 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.17 / train/loss/repval 0.89 / train/loss/rew 0.6 / train/loss/value 0.79 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3782.03
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 296_720]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.51 / train/inv/ce 1.55 / train/inv/confidence 0.25 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.65 / train/inv/head_weight 0 / train/inv/objective 0.65 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.05 / train/loss/image 3.22 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.05 / train/loss/repval 0.9 / train/loss/rew 0.6 / train/loss/value 0.79 / replay/replay_ratio 260 / fps/policy 14.78 / fps/train 3782.62
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+
+--------------------[Agent Step 298_496]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+train/acc/inv 0.5 / train/inv/ce 1.57 / train/inv/confidence 0.25 / train/inv/confidence_gating 0 / train/inv/effective_rep_weight 0.02 / train/inv/head_objective 0.65 / train/inv/head_weight 0 / train/inv/objective 0.65 / train/inv/policy_weight_max 1 / train/inv/policy_weight_mean 1 / train/inv/policy_weight_min 1 / train/inv/policy_weight_std 0 / train/inv/valid_frac 1 / train/inv/weight 0.02 / train/loss/con 0.02 / train/loss/dyn 3.13 / train/loss/image 3.25 / train/loss/inv 0.01 / train/loss/policy -0.01 / train/loss/rep 3.13 / train/loss/repval 0.89 / train/loss/rew 0.6 / train/loss/value 0.79 / replay/replay_ratio 260 / fps/policy 14.77 / fps/train 3779.86
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
+
+--------------------[Agent Step 299_248]--------------------
+Metrics filtered by: 'score|length|fps|ratio|train/loss/|train/acc/|train/inv/|train/rand/'
+No metrics.
+
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/metrics.jsonl
+Writing metrics: /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w002_b11/scores.jsonl
