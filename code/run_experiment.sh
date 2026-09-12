@@ -15,6 +15,15 @@ PARAM_MATCHED=${PARAM_MATCHED:-1}
 BTWM_VARIANT=${BTWM_VARIANT:-v2}
 INV_LOSS_WEIGHT=${INV_LOSS_WEIGHT:-0.05}
 INV_NUM_BINS=${INV_NUM_BINS:-21}
+# The default keeps all historical BTWM experiments unchanged. When using
+# INV_LOSS_SCHEDULE=linear with ENV_STEPS, positions are specified in
+# environment steps rather than optimizer-update counts.
+INV_LOSS_SCHEDULE=${INV_LOSS_SCHEDULE:-const}
+INV_LOSS_DECAY_START=${INV_LOSS_DECAY_START:-0}
+INV_LOSS_DECAY_STEPS=${INV_LOSS_DECAY_STEPS:-0}
+INV_LOSS_FINAL_WEIGHT=${INV_LOSS_FINAL_WEIGHT:-0.0}
+INV_LOSS_DECAY_UNIT=${INV_LOSS_DECAY_UNIT:-updates}
+INV_LOSS_UPDATES_PER_ENV_STEP=${INV_LOSS_UPDATES_PER_ENV_STEP:-1.0}
 
 case "$BTWM_VARIANT" in
   v2)
@@ -99,6 +108,12 @@ if [[ "$MODEL" == btwm ]]; then
   ARGS+=(
     --agent.use_btwm True
     --agent.inv_loss_weight "$INV_LOSS_WEIGHT"
+    --agent.inv_loss_schedule "$INV_LOSS_SCHEDULE"
+    --agent.inv_loss_decay_start "$INV_LOSS_DECAY_START"
+    --agent.inv_loss_decay_steps "$INV_LOSS_DECAY_STEPS"
+    --agent.inv_loss_final_weight "$INV_LOSS_FINAL_WEIGHT"
+    --agent.inv_loss_decay_unit "$INV_LOSS_DECAY_UNIT"
+    --agent.inv_loss_updates_per_env_step "$INV_LOSS_UPDATES_PER_ENV_STEP"
     --agent.inv_head_loss_weight "$INV_HEAD_LOSS_WEIGHT"
     --agent.inv_num_bins "$INV_NUM_BINS"
     --agent.inv_confidence_gating "$INV_CONFIDENCE_GATING"
@@ -120,7 +135,7 @@ fi
 {
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] model=$MODEL domain=$DOMAIN task=$TASK_NAME"
   echo "seed=$SEED gpu=$GPU steps=$RUN_STEPS logdir=$RUN_DIR"
-  echo "variant=$BTWM_VARIANT param_matched=$PARAM_MATCHED inv_weight=$INV_LOSS_WEIGHT head_weight=$INV_HEAD_LOSS_WEIGHT inv_bins=$INV_NUM_BINS confidence_gating=$INV_CONFIDENCE_GATING policy_weight=$INV_POLICY_WEIGHT"
+  echo "variant=$BTWM_VARIANT param_matched=$PARAM_MATCHED inv_weight=$INV_LOSS_WEIGHT inv_schedule=$INV_LOSS_SCHEDULE inv_decay_start=$INV_LOSS_DECAY_START inv_decay_steps=$INV_LOSS_DECAY_STEPS inv_final_weight=$INV_LOSS_FINAL_WEIGHT inv_decay_unit=$INV_LOSS_DECAY_UNIT inv_updates_per_env_step=$INV_LOSS_UPDATES_PER_ENV_STEP head_weight=$INV_HEAD_LOSS_WEIGHT inv_bins=$INV_NUM_BINS confidence_gating=$INV_CONFIDENCE_GATING policy_weight=$INV_POLICY_WEIGHT"
   printf 'command:'
   printf ' %q' "${ARGS[@]}" "$@"
   printf '\n'

@@ -39,6 +39,11 @@ class RSSM(nj.Module):
   inv_loss_decay_start: int = 0
   inv_loss_decay_steps: int = 0
   inv_loss_final_weight: float = 0.0
+  # ``updates`` interprets the schedule positions in optimizer updates.
+  # ``env_steps`` interprets them in environment steps, converting from the
+  # optimizer update counter with inv_loss_updates_per_env_step.
+  inv_loss_decay_unit: str = 'updates'
+  inv_loss_updates_per_env_step: float = 1.0
   inv_head_loss_weight: float = 0.02
   inv_num_bins: int = 21
   inv_hidden_dim: int = 256
@@ -190,6 +195,7 @@ class RSSM(nj.Module):
       metrics['inv/valid_frac'] = (
           valid.sum() / jnp.maximum(valid.size, 1))
       metrics['inv/weight'] = inv_loss_weight
+      metrics['inv/schedule_step'] = self._inv_schedule_step(update_step)
       metrics['inv/head_weight'] = jnp.asarray(
           self.inv_head_loss_weight, f32)
       metrics['inv/confidence_gating'] = jnp.asarray(
@@ -226,9 +232,29 @@ class RSSM(nj.Module):
     final = jnp.asarray(self.inv_loss_final_weight, f32)
     start = jnp.asarray(self.inv_loss_decay_start, f32)
     steps = jnp.asarray(self.inv_loss_decay_steps, f32)
-    update_step = jnp.asarray(update_step, f32)
-    progress = jnp.clip((update_step - start) / steps, 0.0, 1.0)
+    schedule_step = self._inv_schedule_step(update_step)
+    progress = jnp.clip((schedule_step - start) / steps, 0.0, 1.0)
     return base + (final - base) * progress
+
+  def _inv_schedule_step(self, update_step):
+    """Returns the step coordinate used by the inverse-loss scheduler.
+
+    The optimizer exposes an update counter, while experiment protocols are
+    often expressed in environment steps. Keeping the conversion here makes
+    the CLI unambiguous and preserves the original update-based behavior by
+    default.
+    """
+    update_step = jnp.asarray(update_step, f32)
+    if self.inv_loss_decay_unit == 'updates':
+      return update_step
+    if self.inv_loss_decay_unit == 'env_steps':
+      rate = float(self.inv_loss_updates_per_env_step)
+      if rate <= 0:
+        raise ValueError(
+            'inv_loss_updates_per_env_step must be positive for env_steps')
+      return update_step / jnp.asarray(rate, f32)
+    raise ValueError(
+        f'Unsupported inverse loss decay unit: {self.inv_loss_decay_unit}')
 
   def _core(self, deter, stoch, action):
     stoch = stoch.reshape((stoch.shape[0], -1))

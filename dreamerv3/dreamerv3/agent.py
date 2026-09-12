@@ -46,7 +46,8 @@ class Agent(embodied.jax.Agent):
     for key in (
         'use_btwm', 'inv_loss_weight', 'inv_loss_schedule',
         'inv_loss_decay_start', 'inv_loss_decay_steps',
-        'inv_loss_final_weight', 'inv_head_loss_weight', 'inv_num_bins',
+        'inv_loss_final_weight', 'inv_loss_decay_unit',
+        'inv_loss_updates_per_env_step', 'inv_head_loss_weight', 'inv_num_bins',
         'inv_hidden_dim', 'inv_depth', 'inv_feature_source',
         'inv_normalize_loss', 'inv_confidence_gating'):
       try:
