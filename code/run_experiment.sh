@@ -24,6 +24,11 @@ INV_LOSS_DECAY_STEPS=${INV_LOSS_DECAY_STEPS:-0}
 INV_LOSS_FINAL_WEIGHT=${INV_LOSS_FINAL_WEIGHT:-0.0}
 INV_LOSS_DECAY_UNIT=${INV_LOSS_DECAY_UNIT:-updates}
 INV_LOSS_UPDATES_PER_ENV_STEP=${INV_LOSS_UPDATES_PER_ENV_STEP:-1.0}
+# AutoDL uses this Conda environment for all DreamerV3 and BTWM runs.
+# The explicit base path also works in nohup/bash -lc child shells, where the
+# conda shell function is not initialized yet.
+CONDA_ENV=${CONDA_ENV:-btwm}
+CONDA_BASE=${CONDA_BASE:-/root/miniconda3}
 
 case "$BTWM_VARIANT" in
   v2)
@@ -58,6 +63,7 @@ case "$DOMAIN" in
     TASK_NAME=dmc_${TASK}
     REPLAY_SIZE=${REPLAY_SIZE:-300000}
     export MUJOCO_GL=${MUJOCO_GL:-egl}
+    export PYOPENGL_PLATFORM=${PYOPENGL_PLATFORM:-egl}
     ;;
   crafter)
     CONFIG=crafter
@@ -89,7 +95,12 @@ if command -v nvidia-smi >/dev/null 2>&1; then
   fi
 fi
 
-source "$PROJ/venv_dv3/bin/activate"
+if [[ ! -f "$CONDA_BASE/etc/profile.d/conda.sh" ]]; then
+  echo "Conda is unavailable; expected: $CONDA_BASE" >&2
+  exit 1
+fi
+source "$CONDA_BASE/etc/profile.d/conda.sh"
+conda activate "$CONDA_ENV"
 export CUDA_VISIBLE_DEVICES=$GPU
 export XLA_PYTHON_CLIENT_PREALLOCATE=false
 export PYTHONPATH=$PROJ${PYTHONPATH:+:$PYTHONPATH}
@@ -136,6 +147,9 @@ fi
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] model=$MODEL domain=$DOMAIN task=$TASK_NAME"
   echo "seed=$SEED gpu=$GPU steps=$RUN_STEPS logdir=$RUN_DIR"
   echo "variant=$BTWM_VARIANT param_matched=$PARAM_MATCHED inv_weight=$INV_LOSS_WEIGHT inv_schedule=$INV_LOSS_SCHEDULE inv_decay_start=$INV_LOSS_DECAY_START inv_decay_steps=$INV_LOSS_DECAY_STEPS inv_final_weight=$INV_LOSS_FINAL_WEIGHT inv_decay_unit=$INV_LOSS_DECAY_UNIT inv_updates_per_env_step=$INV_LOSS_UPDATES_PER_ENV_STEP head_weight=$INV_HEAD_LOSS_WEIGHT inv_bins=$INV_NUM_BINS confidence_gating=$INV_CONFIDENCE_GATING policy_weight=$INV_POLICY_WEIGHT"
+  if [[ "$MODEL" == btwm ]]; then
+    echo "btwm_config: model=btwm w=$INV_LOSS_WEIGHT bins=$INV_NUM_BINS schedule=$INV_LOSS_SCHEDULE start=$INV_LOSS_DECAY_START duration=$INV_LOSS_DECAY_STEPS final_w=$INV_LOSS_FINAL_WEIGHT unit=$INV_LOSS_DECAY_UNIT updates_per_env_step=$INV_LOSS_UPDATES_PER_ENV_STEP"
+  fi
   printf 'command:'
   printf ' %q' "${ARGS[@]}" "$@"
   printf '\n'

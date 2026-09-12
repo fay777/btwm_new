@@ -90,6 +90,8 @@ defaults:
     inv_loss_decay_start: 0
     inv_loss_decay_steps: 0
     inv_loss_final_weight: 0.0
+    inv_loss_decay_unit: updates
+    inv_loss_updates_per_env_step: 1.0
     inv_head_loss_weight: 0.0
     inv_num_bins: 21
     inv_hidden_dim: 256
