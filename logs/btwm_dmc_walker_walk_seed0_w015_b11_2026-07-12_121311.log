@@ -1,8 +1,0 @@
-[2026-07-12 12:13:11] model=btwm domain=dmc task=dmc_walker_walk
-seed=0 gpu=4 steps=300000 logdir=/home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w015_b11
-variant=v2 param_matched=1 inv_weight=0.015 head_weight=0.0 inv_bins=11 confidence_gating=False policy_weight=0.0
-command: python /home/zhangpeiying01/lfy/btwm-7.7/dreamerv3/dreamerv3/main.py --logdir /home/zhangpeiying01/lfy/btwm-7.7/runs/btwm_dmc_walker_walk_seed0_w015_b11 --configs dmc_vision --task dmc_walker_walk --seed 0 --run.steps 300000 --replay.size 300000 --agent.use_btwm True --agent.inv_loss_weight 0.015 --agent.inv_head_loss_weight 0.0 --agent.inv_num_bins 11 --agent.inv_confidence_gating False --agent.inv_policy_weight 0.0
-Traceback (most recent call last):
-  File "/home/zhangpeiying01/lfy/btwm-7.7/dreamerv3/dreamerv3/main.py", line 12, in <module>
-    import elements
-ModuleNotFoundError: No module named 'elements'

@@ -1,4 +1,0 @@
-[2026-06-15 10:04:32] model=btwm domain=dmc task=dmc_walker_walk
-seed=0 gpu=0 steps=100000 logdir=/data2/liguoqi/habmm/hab_z/btwm/runs/btwm_dmc_walker_walk_seed0_v3_smoke
-param_matched=1 inv_weight=0.05 head_weight=0.02 inv_bins=21 policy_weight=1.0
-command: python /data2/liguoqi/habmm/hab_z/btwm/dreamerv3/dreamerv3/main.py --logdir /data2/liguoqi/habmm/hab_z/btwm/runs/btwm_dmc_walker_walk_seed0_v3_smoke --configs dmc_vision --task dmc_walker_walk --seed 0 --run.steps 100000 --replay.size 300000 --agent.use_btwm True --agent.inv_loss_weight 0.05 --agent.inv_head_loss_weight 0.02 --agent.inv_num_bins 21 --agent.inv_policy_weight 1.0 --batch_size 8 --batch_length 32 --report_length 32

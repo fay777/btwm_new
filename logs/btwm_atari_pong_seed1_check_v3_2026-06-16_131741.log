@@ -1,4 +1,0 @@
-[2026-06-16 13:17:41] model=btwm domain=atari task=atari100k_pong
-seed=1 gpu=0 steps=100000 logdir=/data2/liguoqi/habmm/hab_z/btwm/runs/btwm_atari_pong_seed1_check_v3
-variant=v3 param_matched=1 inv_weight=0.05 head_weight=0.02 inv_bins=21 confidence_gating=True policy_weight=1.0
-command: python /data2/liguoqi/habmm/hab_z/btwm/dreamerv3/dreamerv3/main.py --logdir /data2/liguoqi/habmm/hab_z/btwm/runs/btwm_atari_pong_seed1_check_v3 --configs atari100k --task atari100k_pong --seed 1 --run.steps 100000 --replay.size 500000 --agent.use_btwm True --agent.inv_loss_weight 0.05 --agent.inv_head_loss_weight 0.02 --agent.inv_num_bins 21 --agent.inv_confidence_gating True --agent.inv_policy_weight 1.0 --batch_size 8 --batch_length 32 --report_length 32

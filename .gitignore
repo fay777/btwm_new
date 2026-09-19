@@ -1,0 +1,17 @@
+# Raw runtime output is not uploaded.
+runs/
+logs/
+
+# Archive only JSONL summaries; ignore any accidentally copied heavy artifacts.
+results_archive//ckpt/
+results_archive//replay/
+results_archive//plugins/
+results_archive//scope/
+results_archive/**/events.out.tfevents.*
+
+# Common model weight formats.
+.ckpt
+.pt
+.pth
+.safetensors
+*.npz
